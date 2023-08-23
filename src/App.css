@@ -1,0 +1,128 @@
+header {
+  display: flex;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 10px 0;
+  width: 1280px;
+}
+.container button {
+  background-color: white;
+  margin: 10px auto;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  border: 1px solid rgb(36, 188, 163);
+}
+header img {
+  display: flex;
+  margin: 0 50px 0 100px;
+  /* border: 11px solid green; */
+  width: 100px;
+}
+input {
+  background-color: #f5f6f7;
+  border: none;
+  border-radius: 5px;
+  font-family: Maison Neue;
+  font-size: 16px;
+  height: 37px;
+  outline: none;
+  padding-left: 40px;
+  width: 590px;
+}
+
+/* ********* Hero********* */
+.hero {
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  background-image: url("./assets/hero.img.jpg");
+}
+
+.hero-inter {
+  margin: 100px 400px;
+  background-color: white;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  font-size: 34px;
+  height: 220px;
+  justify-content: center;
+  padding: 25px;
+  position: absolute;
+  top: 75px;
+  width: 360px;
+}
+.hero-inter > button {
+  color: white;
+  width: 187px;
+  height: 45px;
+  margin: 32px 0px 0px;
+  background-color: #2aaeb7;
+  padding: 0 14px;
+  border: 1px solid green;
+}
+
+/* ********ARTICLE********** */
+
+.product-name {
+  display: grid;
+  width: 1300px;
+  margin: 30px auto;
+  /* border: 11px solid orangered; */
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.product-name img {
+  object-fit: cover;
+  display: block;
+  width: 200px;
+  height: 398px;
+}
+.product {
+  width: px;
+}
+
+.offer {
+  display: flex;
+  gap: 9Opx;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 30px;
+  /* height: 400px; */
+  background-color: lightgray;
+}
+
+.offer-img {
+  display: flex;
+
+  width: 100px;
+  margin: 0 0 0 120px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.offer-details {
+  width: 400px;
+  height: 600px;
+  margin: 0 150px 0 0;
+  background-color: white;
+}
+
+.offer-details button {
+  margin-top: 330px;
+  background: #09b1ba;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  height: 36px;
+  line-height: 36px;
+
+  padding: 0 16px;
+  width: 100%;
+}
