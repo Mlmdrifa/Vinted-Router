@@ -21,7 +21,11 @@ const Login = () => {
     fetchData();
   }, [id]);
 
-  return isLoading ? <span>En cours de chargement... </span> : <></>;
+  return (
+    <>
+      {/* //   isLoading ? <span>En cours de chargement... </span> : <></>; */}
+    </>
+  );
 };
 
 export default Login;

@@ -1,31 +1,47 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import Cookies from "js-cookie";
+import { useState } from "react";
+// import Cookies from "js-cookie";
 
 const Signup = () => {
-  const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  // const [data, setData] = useState({});
+  // const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [newletter, setNewLetter] = useState(false);
+  const 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:5173/signup");
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-
+  // const [form, setForm] = useState(false);
+  const handleSubmit = (event) => {
+    event.preventDefault();
     fetchData();
-  }, []);
-
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
   };
+
+  // setForm(false);
+
+  // useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        {
+          username: username,
+          email: email,
+
+          password: password,
+          newsletter: newletter,
+        }
+      );
+      // setData(response.data);
+      // setIsLoading(false);
+      console.log(response);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  // }, []);
+
   return (
     //   isLoading ? (
     //     <span>En cours de chargement... </span>
@@ -36,15 +52,17 @@ const Signup = () => {
           <div className="inscription">
             <h2>S'inscrire</h2>
           </div>
-          {/* <div> */}
-          <form>
+
+          <form onSubmit={handleSubmit}>
             <input
               type="text"
               name="lastname"
               id="lastname"
               value={username}
               placeholder="Nom d'utilisateur"
-              onChange={handleUsernameChange}
+              onChange={(event) => {
+                setUsername(event.target.value);
+              }}
             />
             <br />
 
@@ -73,7 +91,15 @@ const Signup = () => {
             <br />
 
             <div className="checkbox-container">
-              <input type="checkbox" name="" id="" />
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                value={newletter}
+                onChange={(event) => {
+                  setNewLetter(event.target.value);
+                }}
+              />
               <span className="check">S'inscrire à notre newsletter</span>
             </div>
             <p>
