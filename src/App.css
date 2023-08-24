@@ -3,6 +3,7 @@ header {
 }
 
 .container {
+  max-width: 1280px;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -16,12 +17,12 @@ header {
   height: 40px;
   width: 100px;
   border-radius: 10px;
-  border: 1px solid rgb(36, 188, 163);
+  color: white;
+  background-color: rgb(36, 188, 163);
 }
 header img {
   display: flex;
   margin: 0 50px 0 100px;
-  /* border: 11px solid green; */
   width: 100px;
 }
 input {
@@ -55,6 +56,7 @@ input {
   justify-content: center;
   padding: 25px;
   position: absolute;
+  /* border: 11px solid orangered; */
   top: 75px;
   width: 360px;
 }
@@ -74,17 +76,21 @@ input {
   display: grid;
   width: 1300px;
   margin: 30px auto;
-  /* border: 11px solid orangered; */
   grid-template-columns: repeat(5, 1fr);
 }
 
 .product-name img {
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
+  /* border: 11px solid green; */
   width: 200px;
   height: 398px;
 }
 .product {
+  /* border: 11px solid green; */
+  margin-top: 30px;
+
   width: px;
 }
 
@@ -125,4 +131,48 @@ input {
 
   padding: 0 16px;
   width: 100%;
+}
+
+/* ******SINGUP ************/
+.container {
+  width: 1280px;
+  border: 1px solid red;
+}
+
+.inscription {
+  margin-bottom: 20px;
+  /* border: 1px solid green; */
+  font-size: 20px;
+  /* margin: 20px 10px 4px 100px; */
+  margin-top: 20px;
+}
+form {
+  color: grey;
+  margin: auto;
+
+  background-color: white;
+  width: 275px;
+}
+
+form input {
+  display: flex;
+
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #fcced3;
+  height: 35px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.signup {
+  margin: 0 auto;
+}
+.checkbox-container {
+  /* gap: 130px; */
+  display: flex;
+}
+.check {
+  border: 11px solid #fcced3;
+  font-size: medium;
 }

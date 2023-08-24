@@ -38,8 +38,13 @@ const Home = () => {
           return (
             <Link to={`/offer/${offers._id}`} key={index}>
               <div className="product">
-                <p>{offers.product_name}</p>
-                <img key={index} src={offers.product_image.secure_url} alt="" />
+                <p>{offers.owner.account.username}</p>
+                <img
+                  key={index}
+                  src={offers.product_image.secure_url}
+                  alt={offers.product_name}
+                />
+                <p>{offers.product_price}€</p>
               </div>
             </Link>
           );

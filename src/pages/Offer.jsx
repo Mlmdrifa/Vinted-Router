@@ -3,7 +3,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Offer = () => {
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,9 +21,7 @@ const Offer = () => {
     };
 
     fetchData();
-  }, []);
-  const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  }, [id]);
 
   return isLoading ? (
     <span>En cours de chargement... </span>

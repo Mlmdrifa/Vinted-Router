@@ -1,4 +1,5 @@
 import Image from "../assets/logo.jpeg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -6,9 +7,14 @@ const Header = () => {
       <img src={Image} alt="" />
 
       <input type="text" placeholder="recherche des articles" />
+      <Link to="/signup">
+        <button>S'inscrire</button>
+      </Link>
 
-      <button>S'inscrire</button>
-      <button>Se connecter </button>
+      <Link to="/login">
+        <button>Se connecter </button>
+      </Link>
+
       <button> Vends tes articles</button>
     </header>
   );
