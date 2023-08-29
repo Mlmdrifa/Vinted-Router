@@ -1,119 +1,118 @@
 import axios from "axios";
 import { useState } from "react";
-// import Cookies from "js-cookie";
+import { useNavigate, Link } from "react-router-dom";
 
-const Signup = () => {
-  // const [data, setData] = useState({});
-  // const [isLoading, setIsLoading] = useState(true);
-  const [email, setEmail] = useState("");
+const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newletter, setNewLetter] = useState(false);
-  const 
+  const [newsletter, setNewsletter] = useState(false);
 
-  // const [form, setForm] = useState(false);
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetchData();
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
 
-  // setForm(false);
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+  const handleNewslettersChange = () => {
+    setNewsletter(!newsletter);
+  };
 
-  // useEffect(() => {
-  const fetchData = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         {
           username: username,
-          email: email,
-
           password: password,
-          newsletter: newletter,
+          email: email,
+          newsletter: newsletter,
         }
       );
-      // setData(response.data);
-      // setIsLoading(false);
-      console.log(response);
+
+      alert("Votre inscription a été effectuée !");
+      console.log(response.data);
+      // console.log(data);
+
+      handleToken(response.data.token);
+      navigate("/");
     } catch (error) {
       console.log(error.message);
+      if (error.response.data.message === "This email already has an account") {
+        setErrorMessage(
+          "Ce mail est déjà utilisé, veuillez en choisir un autre"
+        );
+      } else if (error.response.data.message === "Missing parameters") {
+        setErrorMessage("Veuillez remplir tous les champs :)");
+      }
     }
   };
 
-  // }, []);
-
   return (
-    //   isLoading ? (
-    //     <span>En cours de chargement... </span>
-    //   ) : (
-    <>
-      <div className="container">
-        <div className="signup">
-          <div className="inscription">
-            <h2>S'inscrire</h2>
-          </div>
-
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="lastname"
-              id="lastname"
-              value={username}
-              placeholder="Nom d'utilisateur"
-              onChange={(event) => {
-                setUsername(event.target.value);
-              }}
-            />
-            <br />
-
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={email}
-              placeholder="Email"
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
-            />
-            <br />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={password}
-              placeholder="Mot de passe"
-              onChange={(event) => {
-                setPassword(event.target.value);
-              }}
-            />
-
-            <br />
-
-            <div className="checkbox-container">
+    <main className="container">
+      <div className="signup">
+        <h2>S'inscrire</h2>
+        <form className="signup-form" id="contactForm" onSubmit={handleSubmit}>
+          <input
+            onChange={handleUsernameChange}
+            type="text"
+            name="username"
+            id="Nom d'utilisateur"
+            value={username}
+            placeholder="Nom d'utilisateur"
+          />
+          <br />
+          <input
+            onChange={handleEmailChange}
+            type="email"
+            name="email"
+            value={email}
+            placeholder="john.doe@gmail.com"
+          />
+          <br />
+          <input
+            onChange={handlePasswordChange}
+            type="password"
+            name="password"
+            value={password}
+            placeholder="Votre mot de passe"
+          />
+          <br />
+          <div className="checkbox-container">
+            <div>
+              {" "}
               <input
+                onChange={handleNewslettersChange}
+                className="check-input"
                 type="checkbox"
-                name=""
-                id=""
-                value={newletter}
-                onChange={(event) => {
-                  setNewLetter(event.target.value);
-                }}
+                value={newsletter}
+                name="newsletter"
               />
-              <span className="check">S'inscrire à notre newsletter</span>
+              <span>S'incre à notre newsletters</span>
             </div>
             <p>
               En m'inscrivant je confirme avoir lu et accepté les Termes &
-              Conditions et Politique de Confidentialité de Vinted. Je confirme
-              avoir au moins 18 ans.
+              Conditions <br />
+              et Politique de Confidentialité de Vinted. Je confirme avoir au
+              moins 18 ans.
             </p>
-
-            <button type="submit">S'inscrire</button>
-          </form>
-          <a href="/login">Tu as un déjà un compte ? Connecte-toi !</a>
-        </div>
+          </div>
+          <br />
+          <input type="submit" value="S'inscrire" />
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        </form>
+        <Link to="/login">Tu as déjà un compte ? Connectes-toi !</Link>
       </div>
-    </>
+    </main>
   );
 };
 

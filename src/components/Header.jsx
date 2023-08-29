@@ -1,23 +1,45 @@
 import Image from "../assets/logo.jpeg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+// import { Range } from "react-range";
 
-const Header = () => {
+import Cookies from "js-cookie";
+
+const Header = ({ token, handleToken, search, setSearch }) => {
   return (
-    <header className="container">
-      <img src={Image} alt="" />
-
-      <input type="text" placeholder="recherche des articles" />
-      <Link to="/signup">
-        <button>S'inscrire</button>
+    <header>
+      <Link to={"./"}>
+        <img src={Image} alt="logo" />
       </Link>
+      <input
+        type="text"
+        value={search}
+        placeholder="Rechercher des articles"
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
+      />
+      {token ? (
+        <>
+          <Link to={"./"}>
+            <button
+              onClick={() => {
+                handleToken(null);
+              }}
+            >
+              Se déconnecter
+            </button>
+          </Link>
+        </>
+      ) : (
+        <>
+          {/* <span>trier par prix</span> */}
 
-      <Link to="/login">
-        <button>Se connecter </button>
-      </Link>
-
-      <button> Vends tes articles</button>
+          <Link to="/signup">S'inscrire</Link>
+          <Link to="/login">Se connecter</Link>
+        </>
+      )}
+      <Link to={token ? "/publish" : "/login"}>Vends tes articles</Link>
     </header>
   );
 };
-
 export default Header;
