@@ -45,7 +45,10 @@ const Offer = () => {
           );
         })}
 
-        <Link to="/paiement">
+        <Link
+          to="/paiement"
+          state={{ title: data.product_name, price: data.product_price }}
+        >
           <button>Achetez</button>
         </Link>
       </div>

@@ -1,16 +1,22 @@
 import Image from "../assets/logo.jpeg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { Range } from "react-range";
 
-import Cookies from "js-cookie";
-
-const Header = ({ token, handleToken, search, setSearch }) => {
+const Header = ({
+  token,
+  handleToken,
+  search,
+  setSearch,
+  sortPrice,
+  // setSortPrice,
+}) => {
   return (
-    <header>
+    <header className="container">
       <Link to={"./"}>
         <img src={Image} alt="logo" />
       </Link>
       <input
+        className="search-input"
         type="text"
         value={search}
         placeholder="Rechercher des articles"
@@ -32,13 +38,42 @@ const Header = ({ token, handleToken, search, setSearch }) => {
         </>
       ) : (
         <>
-          {/* <span>trier par prix</span> */}
-
-          <Link to="/signup">S'inscrire</Link>
-          <Link to="/login">Se connecter</Link>
+          <span> Trier par prix :</span>
+          {/* <Range={} /> */}
+          <span className="checkbox">
+            <input
+              type="checkbox"
+              checked={sortPrice}
+              onChange={() => {}}
+              name="price"
+            />
+            {/* <div
+              className="desc"
+              onClick={() => {
+                setSortPrice(!sortPrice);
+              }}
+            >
+              <div className="filter">
+                <span>{sortPrice ? "asc" : "desc"}</span>
+              </div> */}
+            {/* </div> */}
+          </span>
+          <div>
+            <Link className="header-signup" to="/signup">
+              S'inscrire
+            </Link>
+            <Link className="header-login" to="/login">
+              Se connecter
+            </Link>
+          </div>
         </>
       )}
-      <Link to={token ? "/publish" : "/login"}>Vends tes articles</Link>
+
+      <div>
+        <Link className="header-salt" to={token ? "/publish" : "/login"}>
+          Vends tes articles
+        </Link>
+      </div>
     </header>
   );
 };

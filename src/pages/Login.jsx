@@ -34,7 +34,8 @@ const Login = ({ handleToken }) => {
           }
         }}
       >
-        <h2>Se connecter</h2>
+        <h1>Se connecter</h1>
+        <br />
         <input
           type="email"
           placeholder="Email"
@@ -51,9 +52,7 @@ const Login = ({ handleToken }) => {
             setPassword(event.target.value);
           }}
         />
-        <button className="form-validation" type="submit" value="Se connecter">
-          {/* Se connecter */}
-        </button>
+        <input className="form-validation" type="submit" value="Se connecter" />
         <Link to="/signup"> Pas encore de compte ? Inscris-toi !</Link>
       </form>
     </div>

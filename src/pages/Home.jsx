@@ -31,7 +31,7 @@ const Home = ({ search, priceMini, priceMax, sort }) => {
         <div className="hero-inter">
           <h3>Prêts à faire du tri dans vos placards?</h3>
 
-          <Link to="/publish">
+          <Link className="hero-button" to="/publish">
             <button>Commencer à vendre</button>
           </Link>
         </div>

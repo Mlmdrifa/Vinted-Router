@@ -1,7 +1,3 @@
-header {
-  display: flex;
-}
-
 .container {
   max-width: 1280px;
   align-items: center;
@@ -11,42 +7,91 @@ header {
   padding: 10px 0;
   width: 1280px;
 }
-.container button {
+.header-signup {
   background-color: white;
-  margin: 10px auto;
-  height: 40px;
-  width: 100px;
-  border-radius: 10px;
-  color: white;
-  background-color: rgb(36, 188, 163);
+  color: #2cb1ba;
+  margin-right: 20px;
 }
+
+.header-signup {
+  font-family: "Maison Neue";
+  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
+  color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  margin-right: 20px;
+}
+.header-login {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  color: #2cb1ba;
+  border: 1px solid #2cb1ba;
+  margin-right: 20px;
+}
+
+.header-button {
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  height: 30px;
+  outline: none;
+  width: 115px;
+}
+
 header img {
+  cursor: pointer;
   display: flex;
   margin: 0 50px 0 100px;
-  width: 100px;
+  width: 145px;
 }
-input {
-  background-color: #f5f6f7;
-  border: none;
-  border-radius: 5px;
-  font-family: Maison Neue;
-  font-size: 16px;
-  height: 37px;
-  outline: none;
+
+.search-input {
+  width: 400px;
   padding-left: 40px;
-  width: 590px;
+  background-color: #f5f6f7;
+  border-radius: 5px;
+  height: 37px;
+  border: none;
+  outline: none;
+  font-family: "Maison Neue";
+  font-size: 16px;
+}
+
+.header-salt {
+  font-family: "Maison Neue";
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #2cb1ba;
+  color: white;
+  border: 1px solid #2cb1ba;
+  margin-right: 20px;
+}
+
+.search-input::placeholder {
+  color: #cbcccd;
+  font-size: 16px;
+}
+h1 {
+  color: black;
+  font-size: 24px;
+  font-weight: 400;
 }
 
 /* ********* Hero********* */
 .hero {
+  height: 455px;
+  width: 100%;
+  position: relative;
   background-position: center;
   background-size: cover;
-  height: 400px;
   background-image: url("./assets/hero.img.jpg");
 }
 
 .hero-inter {
-  margin: 100px 400px;
+  margin: 100px 200px;
   background-color: white;
   border-radius: 3px;
   display: flex;
@@ -56,18 +101,19 @@ input {
   justify-content: center;
   padding: 25px;
   position: absolute;
-  /* border: 11px solid orangered; */
   top: 75px;
   width: 360px;
 }
-.hero-inter > button {
-  color: white;
-  width: 187px;
+.hero-button {
   height: 45px;
-  margin: 32px 0px 0px;
-  background-color: #2aaeb7;
+  width: 187px;
+  background-color: #2baeb7;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  border: none;
   padding: 0 14px;
-  border: 1px solid green;
+  margin-top: 32px;
 }
 
 /* ********ARTICLE********** */
@@ -136,9 +182,26 @@ input {
 /* ******SINGUP ************/
 .container {
   width: 1280px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
-
+.form-validation {
+  font-family: "Maison Neue";
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #2cb1ba;
+  color: white;
+  border: 1px solid #2cb1ba;
+  margin-right: 20px;
+}
+.inscription {
+  font-family: "Maison Neue";
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #2cb1ba;
+  color: white;
+  border: 1px solid #2cb1ba;
+  margin-right: 20px;
+}
 .inscription {
   margin-bottom: 20px;
   /* border: 1px solid green; */

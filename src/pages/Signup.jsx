@@ -60,7 +60,8 @@ const Signup = ({ handleToken }) => {
   return (
     <main className="container">
       <div className="signup">
-        <h2>S'inscrire</h2>
+        <h1>S'inscrire</h1>
+        <br />
         <form className="signup-form" id="contactForm" onSubmit={handleSubmit}>
           <input
             onChange={handleUsernameChange}
@@ -107,7 +108,7 @@ const Signup = ({ handleToken }) => {
             </p>
           </div>
           <br />
-          <input type="submit" value="S'inscrire" />
+          <input className="inscription" type="submit" value="S'inscrire" />
           {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </form>
         <Link to="/login">Tu as déjà un compte ? Connectes-toi !</Link>

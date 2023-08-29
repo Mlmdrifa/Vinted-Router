@@ -40,14 +40,19 @@ const Publish = ({ token }) => {
         }
       );
       console.log(response.data);
-      navigate("/");
+      if (response.data._id) {
+        console.log(response.data._id);
+        navigate("/");
+      } else {
+        alert("Une erreur est survenue, veuillez réssayer");
+      }
     } catch (error) {
       console.log(error.message);
     }
   };
 
   return token ? (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit}>
         <h1>Vends ton article</h1>
         <div>

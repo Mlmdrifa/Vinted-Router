@@ -30,10 +30,21 @@ function App() {
       setToken(null);
     }
   };
+
+  const setUser = (token) => {
+    if (token) {
+      setToken(token);
+      Cookies.set("token", token);
+    } else {
+      setToken(null);
+      Cookies.remove("token");
+    }
+  };
   return (
     <>
       <Router>
         <Header
+          setUser={setUser}
           token={token}
           handleToken={handleToken}
           setToken={setToken}
